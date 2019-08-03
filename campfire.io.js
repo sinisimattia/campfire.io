@@ -130,6 +130,6 @@ io.on("connection", (socket) => {
 /**
  * Server
  */
-http.listen(config.port, () => {
-    console.log(`Listening to specified port: (${config.port})`);
+http.listen(process.env.PORT || config.port, () => {
+    console.log(`Listening to specified port: (${process.env.PORT || config.port})`);
 });
