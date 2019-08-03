@@ -48,12 +48,12 @@
             </div>
         </div>
 
-        <div class="block grid-right">
+        <div class="block grid-right relative">
             <div class="preheader flex" id="chatInfo">
                 <span class="padding block centered centered-txt">Siete in <span class="bold" id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span class="capitalized" style="color:orange">{{room}}</span></span>
             </div>
-            <div style="overflow: hidden; overflow-y: auto" class="block top wrapper">
-                <ul id="feed" class="wrapper h-padding"></ul>            
+            <div class="block top wrapper">
+                <ul id="feed" class="wrapper h-padding" style="overflow-y:auto; max-height: 500px"></ul>            
             </div>
 
             <form id="msgbox" class="absolute centered bottom block padding">
