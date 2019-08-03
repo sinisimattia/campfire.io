@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+        <title>campfire.io</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/resources/slim.min.css" rel="stylesheet">
+        <link href="/resources/animations.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
+        <script src="/scripts/jquery-3.4.1.min.js"></script>
+        <script src="/scripts/socket.io.js"></script>
+        <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'main'}}" id="io"></script>
+        <style>
+            * {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            }
+
+            ul, ol{
+                margin: 0;
+                padding: 0;
+            }
+
+            ul{
+                list-style-type: none;                
+            }
+
+            ul#feed li{
+                animation: fade-in 0.5s;
+            }
+
+            ul#feed li .msg-content{
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+
+            .split-grid{
+                grid-template-columns: auto 1fr;
+            }
+        </style>
+    </head>
+
+    <body class="fullscreen grid split-grid cover-bg" columns="auto auto" style="background-image: url(/resources/img/{{background}}); overflow: hidden">
+        <div class="centered-txt desktop-only dark block grid-left padding relative" style="min-width: 180px">
+            <h4>Compagnia</h4>
+            <hr>
+            <ul id="company"></ul>
+            <div class="absolute flex bottom centered padding">
+                <a href="/" id="home" class="button block centered">Disconnettiti</a>
+            </div>
+        </div>
+
+        <div class="block grid-right">
+            <div class="preheader flex" id="chatInfo">
+                <span class="padding block centered centered-txt">Siete in <span class="bold" id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span class="capitalized" style="color:orange">{{room}}</span></span>
+            </div>
+            <div style="overflow: hidden; overflow-y: auto" class="block top wrapper">
+                <ul id="feed" class="wrapper h-padding"></ul>            
+            </div>
+
+            <form id="msgbox" class="absolute centered bottom block padding">
+                <div class="v-margin">
+                    <a id="typing" class="padding author" style="color:white"></a>
+                </div>
+                <input maxlength="100" size="200" type="text" class="padding" style="width: calc(100% - 40px)" name="message" id="message" placeholder="Scrivi un messaggio come {{username}}" autocomplete="off"/>
+                <button type="submit" class="padding"><img height="12px" width="12px" src="/resources/img/send-button.svg"></button>
+            </form>
+        </div>
+    </body>
+</html>

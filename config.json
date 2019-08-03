@@ -1,0 +1,48 @@
+{
+    "port": 35000,
+    "views": {
+        "pages": {
+            "chat": "chat.html",
+            "menu": "mainmenu.html",
+            "rooms": "roomselect.html",
+            "frontpage": "welcome.html"
+        },
+        "folder": "views",
+        "prefs": {
+            "background":{
+                "folder": "img",
+                "list": {
+                    "chat": "camping.jpg",
+                    "frontpage": "wallpaper.png"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "modules": "node_modules",
+        "folder": "client_scripts",
+        "assets": "assets"
+    },
+    "rooms": [
+        "general",
+        "programmazione",
+        "avventure",
+        "misteri",
+        "futuro",
+        "notizie",
+        "sport",
+        "videogiochi",
+        "campeggio",
+        "film",
+        "musica",
+        "affari",
+        "amore"
+    ],
+    "default": {
+        "username": "Anon",
+        "room": "general"
+    },
+    "info": {
+        "version": "0.0.1"
+    }
+}
