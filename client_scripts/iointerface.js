@@ -25,7 +25,7 @@ $(()=>{
         else
             feed.append(messageView(msg));
         
-        feed.animate({scrollTop: feed.height() + 30});
+        feed.parent().animate({scrollTop: feed.height() + 30});
     });
 
     socket.on("warning", (msg) => {
