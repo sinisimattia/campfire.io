@@ -1,0 +1,16 @@
+{
+  "short_name": "campfire.io",
+  "name": "campfire.io — Chat Anonima",
+  "icons": [
+    {
+      "src": "/favicon.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#FFFFFF",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#003355"
+}
