@@ -25,7 +25,8 @@ var users = [];
 app.use("/resources", express.static(config.views.folder));
 app.use("/scripts", express.static(config.scripts.folder));
 app.use("/scripts", express.static(config.scripts.assets));
-app.use("/scripts", express.static(__dirname + "/" + config.scripts.modules + "/socket.io-client/dist"));
+app.use("/scripts", express.static(config.scripts.modules + "/socket.io-client/dist"));
+app.use("/scripts", express.static(config.scripts.modules + "/push.js/bin/"));
 
 /**
  * Handling request data

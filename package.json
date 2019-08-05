@@ -5,9 +5,9 @@
   "author": "Mattia Sinisi",
   "dependencies": {
     "consolidate": "^0.15.1",
-    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "html-escaper": "^2.0.0",
+    "push.js": "^1.0.12",
     "socket.io": "^2.2.0",
     "swig": "^1.4.2"
   },
