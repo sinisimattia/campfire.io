@@ -12,6 +12,8 @@
         window.onfocus = () => { windowFocus = true; }
         window.onblur = () => { windowFocus = false; }
 
+        Push.config({ serviceWorker: '//serviceWorker.min.js'});
+
         $("#msgbox").submit(()=>{
             if ( box.val() !== "" ) socket.emit("message", {
                 // new Message();
