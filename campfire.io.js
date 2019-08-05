@@ -67,10 +67,10 @@ app.get("/", (req, res) => {
 /**
  * APIs
  */
-app.get("/api/getusers", (req, res) => {
+/*app.get("/api/getusers", (req, res) => {
     res.setHeader("Content-type", "application/json");
     res.send(JSON.stringify(users));
-});
+});*/
 
 /**
  * Socket.io
