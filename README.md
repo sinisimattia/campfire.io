@@ -1,5 +1,5 @@
 # ![](https://i.ibb.co/JBD1xNh/campfire-io.png) campfire.io
-<b>by <span style="color:orange">Mattia Sinisi</span> for <span style="color:green">start2impact</span></b>
+by **Mattia Sinisi** for **start2impact**
 
 Ciao a tutti, questa è un'altra applicazione per la superguida
 di NodeJS.
