@@ -33,7 +33,7 @@
             
             feed.parent().animate({scrollTop: feed.height() + 30});
 
-            if ( !windowFocus ) Push.create(msg.from.username, {
+            if ( !windowFocus ) Push.create(`${msg.from.username} in ${msg.from.room}`, {
                 body: msg.content,
                 icon: "/resources/img/campfire.io.png",
                 onClick: () => {
