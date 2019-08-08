@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+        <title>campfire.io</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="/resources/img/campfire.io.png">
+        <link rel="stylesheet" href="https://unpkg.com/picnic">
+        <link href="/resources/animations.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
+        <script src="/scripts/push.js" rel="text/javascript"></script>
+        <script src="/scripts/jquery-3.4.1.min.js" rel="text/javascript"></script>
+        <script src="/scripts/socket.io.js" rel="text/javascript"></script>
+        <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'general'}}" id="io"></script>
+        <style>
+            * {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            }
+
+            ::-webkit-scrollbar{
+                background: transparent;
+            }
+
+            ::-webkit-scrollbar-thumb{
+                background: var(--background) !important;
+            }
+
+            body{
+                grid-template-rows: 1fr 9fr;
+                grid-template-areas:
+                "head"
+                "main";
+            }
+
+            ul, ol{
+                margin: 0;
+                padding: 0;
+            }
+
+            ul{
+                list-style-type: none;                
+            }
+
+            ul#feed li{
+                animation: fade-in 0.5s;
+            }
+
+            ul#feed li .msg-content{
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+
+            .split-grid{
+                grid-template-columns: auto 1fr;
+            }
+
+            #chatInfo{
+                grid-area: head;
+            }
+
+            #main{
+                grid-area: main;
+            }
+
+            #chat-wrapper{
+                grid-template-rows: 5fr 1fr;
+                grid-template-areas:
+                "feed"
+                "msg";
+            }
+
+            #feed-wrapper{
+                grid-area: feed;
+                overflow-y: scroll;
+                overflow-x: hidden;
+            }
+
+            #msgbox {
+                grid-area: msg;
+            }
+        </style>
+    </head>
+
+    <body columns="auto auto" style="background-image: url(/resources/img/{{background}}); overflow: hidden">
+        <nav id="chatInfo">
+            <p>Siete in <span id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span style="color:orange">{{room}}</span></p>
+        </nav>
+
+        <div id="main">
+            <card style="min-width: 180px">
+                <header>Compagnia</header>
+                <hr>
+                <ul id="company"></ul>
+                <div>
+                    <a href="/" id="home">Disconnettiti</a>
+                </div>
+            </card>
+
+            <div>
+                <div id="chat-wrapper">
+                    <div id="feed-wrapper">
+                        <ul id="feed"></ul>            
+                    </div>                
+
+                    <form id="msgbox">
+                        <div>
+                            <a id="typing" style="color:white"></a>
+                        </div>
+                        <input maxlength="100" size="200" type="text" style="width: calc(100% - 40px)" name="message" id="message" placeholder="Scrivi un messaggio come {{username}}" autocomplete="off"/>
+                        <button type="submit"><img height="12px" width="12px" src="/resources/img/send-button.svg"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
