@@ -1,4 +1,4 @@
-# ![](https://i.ibb.co/JBD1xNh/campfire-io.png =100x100) campfire.io
+# ![](https://i.ibb.co/JBD1xNh/campfire-io.png) campfire.io
 <b>by Mattia Sinisi for start2impact</b>
 Ciao a tutti, questa è un'altra applicazione per la superguida
 di NodeJS.
