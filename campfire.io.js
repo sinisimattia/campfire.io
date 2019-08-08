@@ -20,6 +20,7 @@ const config = require("./config.json");
  * Important variables
  */
 var users = [];
+var messageRequests = [];
 
 // Set folders for static files · refer to string in first argument to access folder specified in second argument
 app.use("/resources", express.static(config.views.folder));
@@ -42,11 +43,12 @@ app.set("view engine", "html");
  * Pages
  */
 app.post("/chat", (req, res) => {
-    res.render("chat.html", {
+    res.render(config.views.pages.chat, {
         username: html.escape(req.body.username || config.default.username),
         room: html.escape(req.body.custom_room || req.body.room || config.default.room),
         background: config.views.prefs.background.list.chat,
-        usersConnected: users.length
+        usersConnected: users.length,
+        messageRequests: messageRequests
     });
 });
 
@@ -112,6 +114,14 @@ io.on("connection", (socket) => {
         }        
     });
 
+    socket.on("message_request", (msg) => {
+        if (msg.content != ""){
+            msg.content = html.escape(msg.content);
+            io.to(msg.from.room).emit("echo_request", msg);
+            messageRequests.push(msg);
+        }        
+    });
+
     socket.on("updateUser", ({username, room}) => {
         users.filter(({id}, index) => {
             if (socket.id === id){
@@ -134,3 +144,7 @@ io.on("connection", (socket) => {
 http.listen(process.env.PORT || config.port, () => {
     console.log(`Listening to specified port: (${process.env.PORT || config.port})`);
 });
+
+setInterval(() => {
+    messageRequests = [];
+}, config.cleanTimeout);

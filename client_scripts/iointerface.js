@@ -15,11 +15,20 @@
         Push.config({ serviceWorker: '//serviceWorker.min.js'});
 
         $("#msgbox").submit(()=>{
-            if ( box.val() !== "" ) socket.emit("message", {
-                // new Message();
-                content: $.trim(box.val()),
-                from: me
-            });
+            if ( box.val().trim() !== "" ){
+                if ( box.val().substring( 0, "#request".length ).toLowerCase() === "#request" ){
+                    socket.emit("message_request", {
+                        content: $.trim(box.val()),
+                        from: me
+                    });
+                } else {
+                    socket.emit("message", {
+                        // new Message();
+                        content: $.trim(box.val()),
+                        from: me
+                    });
+                }                
+            }
             box.val("");
             return false;
         });
@@ -43,6 +52,21 @@
             });
         });
 
+        socket.on("echo_request", (msg) => {
+            feed.parent().animate({scrollTop: feed.height() + 30});
+
+            $("#requests").append(requestView(msg));
+
+            if ( !windowFocus ) Push.create(`${msg.from.username} in ${msg.from.room}`, {
+                body: msg.content,
+                icon: "/resources/img/campfire.io.png",
+                onClick: () => {
+                    window.focus();
+                    this.close();
+                }
+            });
+        });
+
         socket.on("warning", (msg) => {
             feed.append(warningView(msg));
         });
@@ -55,7 +79,7 @@
             // = new User();
         });
 
-        socket.on("newUser", (users) => {
+        socket.on("newUser", (users, requests) => {
             usersConnected = users;
             updateCount(users);
         });
@@ -90,7 +114,7 @@
     function updateCount(users){
         $("#userCount").html(users.length || "gruppo");
 
-        $("#company").html(usersToList(users));
+        $("#company").html(usersToList(users)); // replace with .append()
     }
 
     function usersToList(users){
@@ -144,3 +168,8 @@
     const userInList = (user) => `<li title="${user.username}#${user.id}">${user.username}</li>`;
 
     const warningView = (msg) => `<li><a>[!] Important comunication from the server: ${msg}</li></a>`;
+
+    const requestView = (request) => `<li class="padding dark rounded request">
+    <span class="username rounded padding wide block">${ request.from.username }</span>
+    <p class="content">${ request.content }</p>
+</li>`

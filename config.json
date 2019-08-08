@@ -1,5 +1,6 @@
 {
-    "port": 35000,
+    "port": 40000,
+    "cleanTimeout": 865400000,
     "views": {
         "pages": {
             "chat": "chat.html",
@@ -43,6 +44,6 @@
         "room": "general"
     },
     "info": {
-        "version": "0.0.5"
+        "version": "0.0.7"
     }
 }

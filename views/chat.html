@@ -77,6 +77,15 @@
             #msgbox {
                 grid-area: msg;
             }
+
+            .request{
+                border: 1px dotted white;
+            }
+
+            .request .username{
+                background-color: white;
+                color: black !important;
+            }
         </style>
     </head>
 
@@ -90,6 +99,15 @@
                 <h4>Compagnia</h4>
                 <hr>
                 <ul id="company"></ul>
+                <hr>
+                <ul id="requests">
+                    {% for request in messageRequests %}
+                    <li class="padding dark rounded request">
+                        <span class="username rounded padding wide block">{{ request.from.username }}</span>
+                        <p class="content">{{ request.content }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
                 <div class="absolute flex bottom centered padding">
                     <a href="/" id="home" class="button block centered">Disconnettiti</a>
                 </div>
