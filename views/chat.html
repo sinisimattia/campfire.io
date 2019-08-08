@@ -24,6 +24,10 @@
                 background: var(--background) !important;
             }
 
+            html, body{
+                height: 100%
+            }
+
             body{
                 grid-template-rows: 1fr 9fr;
                 grid-template-areas:
@@ -94,22 +98,24 @@
             <span class="h-padding block centered centered-txt">Siete in <span class="bold" id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span class="capitalized" style="color:orange">{{room}}</span></span>
         </div>
 
-        <div class="wide grid split-grid" id="main">
-            <div class="centered-txt desktop-only dark block grid-left padding relative" style="min-width: 180px">
-                <h4>Compagnia</h4>
-                <hr>
-                <ul id="company"></ul>
-                <hr>
-                <ul id="requests">
-                    {% for request in messageRequests %}
-                    <li class="padding dark rounded request">
-                        <span class="username rounded padding wide block">{{ request.from.username }}</span>
-                        <p class="content">{{ request.content }}</p>
-                    </li>
-                    {% endfor %}
-                </ul>
-                <div class="absolute flex bottom centered padding">
-                    <a href="/" id="home" class="button block centered">Disconnettiti</a>
+        <div class="wide grid split-grid" id="main" style="overflow: hidden">
+            <div class="centered-txt desktop-only dark block grid-left padding relative" style="min-width: 180px; height: 100%">
+                <div style="overflow-y: scroll; height: 100%">  
+                    <h4>Compagnia</h4>
+                    <hr>
+                    <ul id="company"></ul>
+                    <hr>
+                    <ul id="requests">
+                        {% for request in messageRequests %}
+                        <li class="padding dark rounded request">
+                            <span class="username rounded padding wide block">{{ request.from.username }}</span>
+                            <p class="content">{{ request.content }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <div class="fixed flex bottom centered padding">
+                        <a href="/" id="home" class="button block centered">Disconnettiti</a>
+                    </div>
                 </div>
             </div>
 
