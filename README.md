@@ -18,3 +18,6 @@ Quest'app è pensata per essere cambiata in futuro, quindi modificarla
 config.json nella root del progetto!
 
 ## Grazie per aver corretto il mio progetto! Alla prossima ;)
+
+Powered  by
+![alt text](https://www.snisni.it/Icons/SNISNI_Modern_Logo.png)
