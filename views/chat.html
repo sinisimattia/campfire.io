@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
-        <title>campfire.io</title>
+        <title>{{ room }} · campfireio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/resources/img/campfire.io.png">
-        <link href="/resources/slim.min.css" rel="stylesheet">
-        <link href="/resources/animations.css" rel="stylesheet">
+        <link href="/resources/css/slim.min.css" rel="stylesheet">
+        <link href="/resources/css/animations.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
         <script src="/scripts/push.js" rel="text/javascript"></script>
         <script src="/scripts/jquery-3.4.1.min.js" rel="text/javascript"></script>
@@ -14,6 +14,12 @@
         <style>
             * {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            }
+
+            :root{
+                --foreground: #6666ff;
+                --secondary: #ff99ff;
+                --background: #ffffff;
             }
 
             ::-webkit-scrollbar{
@@ -66,7 +72,7 @@
             }
 
             #chat-wrapper{
-                grid-template-rows: 5fr 1fr;
+                grid-template-rows: 4fr 1fr;
                 grid-template-areas:
                 "feed"
                 "msg";
@@ -95,7 +101,7 @@
 
     <body class="grid fullscreen cover-bg" columns="auto auto" style="background-image: url(/resources/img/{{background}}); overflow: hidden">
         <div class="preheader flex" id="chatInfo">
-            <span class="h-padding block centered centered-txt">Siete in <span class="bold" id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span class="capitalized" style="color:orange">{{room}}</span></span>
+            <span class="h-padding block centered centered-txt">Siete in <span class="bold" id="userCount">{{usersConnected}}</span> intorno al fuoco, parlate di <span class="capitalized rounded padding" style="color:var(--foreground); background-color: var(--background);">{{room}}</span></span>
             <div class="flex bottom centered padding desktop-only">
                 <a href="/" id="home" class="button block centered bold">Disconnettiti</a>
             </div>

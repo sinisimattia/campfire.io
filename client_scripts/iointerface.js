@@ -5,6 +5,9 @@
         var socket = io();
         var box = $("#message");
         var feed = $("#feed");
+        var requests = $("#requests");
+        var company = $("#company");
+        var userCount = $("#userCount");
         var me;
         var usersConnected;
         var windowFocus = true;
@@ -18,7 +21,7 @@
             if ( box.val().trim() !== "" ){
                 if ( box.val().substring( 0, "#request".length ).toLowerCase() === "#request" ){
                     socket.emit("message_request", {
-                        content: $.trim(box.val()),
+                        content: $.trim(box.val().replace("#request", "")),
                         from: me
                     });
                 } else {
@@ -55,7 +58,7 @@
         socket.on("echo_request", (msg) => {
             feed.parent().animate({scrollTop: feed.height() + 30});
 
-            $("#requests").append(requestView(msg));
+            requests.append(requestView(msg));
 
             if ( !windowFocus ) Push.create(`${msg.from.username} in ${msg.from.room}`, {
                 body: msg.content,
@@ -112,9 +115,9 @@
     });
 
     function updateCount(users){
-        $("#userCount").html(users.length || "gruppo");
+        $(userCount).html(users.length || "gruppo");
 
-        $("#company").html(usersToList(users)); // replace with .append()
+        $(company).html(usersToList(users)); // replace with .append()
     }
 
     function usersToList(users){
@@ -165,7 +168,7 @@
         </a>
     </li>`;
 
-    const userInList = (user) => `<li title="${user.username}#${user.id}">${user.username}</li>`;
+    const userInList = (user) => `<li class="pure-menu-item" title="${user.username}#${user.id}"><a class="pure-menu-link">${user.username}</li></a>`;
 
     const warningView = (msg) => `<li><a>[!] Important comunication from the server: ${msg}</li></a>`;
 

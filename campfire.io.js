@@ -145,6 +145,15 @@ http.listen(process.env.PORT || config.port, () => {
     console.log(`Listening to specified port: (${process.env.PORT || config.port})`);
 });
 
+/**
+ * FUTURE PLANS
+ * ··················
+ * Make this activate every hour
+ * Every request has a time of publishing ( just hours )
+ * every hour every number in the array gets 1 subtracted to it
+ * if 0 then remove;
+ */
+
 setInterval(() => {
     messageRequests = [];
 }, config.cleanTimeout);

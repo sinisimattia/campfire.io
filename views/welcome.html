@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
-        <title>campfire.io</title>
+        <title>campfireio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" href="/resources/img/campfire.io.png">
         <link rel="manifest" href="/resources/manifest.json">
-        <link href="/resources/slim.min.css" rel="stylesheet">
-        <link href="/resources/animations.css" rel="stylesheet">
+        <link href="/resources/css/slim.min.css" rel="stylesheet">
+        <link href="/resources/css/animations.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
         <script type="text/javascript" src="/scripts/flickity.pkgd.min.js"></script>
         <script type="text/javascript" src="/scripts/carousel.js"></script>
+        <script type="text/javascript" src="/scripts/masonry.pkgd.min.js"></script>
         <style>
             * {
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            }
+
+            :root{
+                --foreground: #6666ff;
+                --secondary: #ff99ff;
+                --background: #ffffff;
+            }
+
+            img {
+                width: 150px;
+                height: auto;
             }
 
             #menu div{
@@ -21,11 +33,15 @@
         </style>
     </head>
 
-    <body class="fullscreen flex" style="background-image: url(/resources/img/{{background}})">
+    <body class="fullscreen flex">
         <div style="animation-name: fade-in; animation-duration: 1s" class="block centered padding">
             <form id="menu" method="POST" action="/chat">
                 <div id="welcome">
-                    <h1 class="centered-txt title" style="text-shadow: 1px 1px 0 var(--secondary)">campfire<span style="color:orange">.io</span></h1>
+                        <h1 class="centered-txt title">
+                            <span style="text-shadow: 1px 1px 0 var(--secondary)">campfire[io]</span>
+                            <span class="author">{{ver}}</span>
+                        </h1>
+                    <img src="/resources/img/camping/005-bonfire.svg" class="centered block">
                     <p style="color: var(--foreground)" class="centered-txt">Racconta storie intorno al fuoco!</p>
                     {% if usersConnected > 0 %}
                     <p style="color: var(--foreground)" class="centered-txt">{{usersConnected}} utenti connessi.</p>
@@ -37,14 +53,14 @@
                     <input class="wide block margin centered-txt" type="text" placeholder="Username" autocomplete="username" name="username" id="username" />
                     <p style="color: var(--foreground)" class="centered-txt">Default: {{def.username}}</p>
                     <div class="flex">
-                        <button type="button" onclick="n()" class="h-margin block wide">Enter</button>
-                        <button type="button" onclick="p()" class="button h-margin block wide">Back</button>
+                        <button type="button" onclick="p()" class="button h-margin block wide">Indietro</button>
+                        <button type="button" onclick="n()" class="h-margin block wide">Avanti</button>
                     </div>
                 </div>
 
                 <div id="rooms" class="padding">
                     <select autofocus class="wide block margin centered-txt" name="room" id="room">
-                        <option class="author" disabled value="" selected>Select a room</option>
+                        <option class="author" disabled value="" selected>Scegli una stanza</option>
                         {% for room in rooms %}
                             <option value="{{room}}" class="capitalized">{{room}}</option>
                         {% endfor %}
@@ -55,17 +71,15 @@
                     <p style="color: var(--foreground)" class="centered-txt">Default: {{def.room}}</p>
 
                     <div class="flex">
-                        <button class="h-margin block wide" type="submit">Enter</button>
-                        <button type="button" onclick="p()" class="h-margin block wide">Back</button>
+                        <button type="button" onclick="p()" class="h-margin block wide">Indietro</button>
+                        <button class="h-margin block wide" type="submit">Entra</button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <div class="absolute centered bottom wide block padding">
-            <p class="block centered-txt" style="color: white">Alpha Version {{ver}}</p>    
-
-            <p class="block centered-txt" style="color: white">Made with 💚 by Mattia Sinisi</p>    
+        <div class="absolute centered bottom wide block padding" style="color: var(--foreground)">
+            <p class="block centered-txt">Made with ❤ by Mattia Sinisi</p>    
         </div>
     </body>
 </html>

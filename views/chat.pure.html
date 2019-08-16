@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>{{room}} · campfireio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive email layout.">
+    <script src="/scripts/push.js" rel="text/javascript"></script>
+    <script src="/scripts/jquery-3.4.1.min.js" rel="text/javascript"></script>
+    <script src="/scripts/socket.io.js" rel="text/javascript"></script>
+    <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'general'}}" id="io"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">    
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="/resources/css/layouts/email-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="/resources/css/layouts/email.css">
+        <!--<![endif]-->
+</head>
+<body>
+
+<div id="layout" class="content pure-g">
+    <div id="nav" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
+
+        <div class="nav-inner">
+            <a class="primary-button pure-button" id="home" href="/">Esci</a>
+
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Inbox <span class="email-count">(2)</span></a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Important</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sent</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Drafts</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Trash</a></li>
+                    <li class="pure-menu-heading">Labels</li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Personal</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Work</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Travel</a></li>
+                </ul>
+
+                <a class="pure-menu-heading">Compagnia</a>
+                <ul class="pure-menu-list" id="company"></ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="list" class="pure-u-1">
+        {% for request in messageRequests %}
+        <div class="email-item email-item-selected pure-g">
+            <div class="pure-u-3-4">
+                <h5 class="email-name">{{ request.from.username }}</h5>
+                <h4 class="email-subject">ha effettuato una richiesta</h4>
+                <p class="email-desc">
+                    {{ reuqest.content }}
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div id="main" class="pure-u-1">
+        <div class="email-content">
+            <div class="email-content-header pure-g">
+                <div class="pure-u-1-2">
+                    <h1 class="email-content-title">{{room}}</h1>
+                    <p class="email-content-subtitle">
+                        Siete in <span id="userCount">{{ usersConnected }}</span> a parlare.
+                    </p>
+                </div>
+
+                <div class="email-content-controls pure-u-1-2">
+                    <button class="secondary-button pure-button">Reply</button>
+                    <button class="secondary-button pure-button">Forward</button>
+                    <button class="secondary-button pure-button">Move to</button>
+                </div>
+            </div>
+
+            <div class="email-content-body">
+                <ul id="feed"></ul>
+            </div>
+            <form id="msgbox" class="centered bottom block padding fixed bottom">
+                <div class="v-margin">
+                    <a id="typing" class="padding author" style="color:white"></a>
+                </div>
+                <input maxlength="100" size="200" type="text" class="padding" style="width: calc(100% - 40px)" name="message" id="message" placeholder="Scrivi un messaggio come {{username}}" autocomplete="off"/>
+                <button type="submit" class="padding"><img height="12px" width="12px" src="/resources/img/send-button.svg"></button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script><script>
+    YUI().use('node-base', 'node-event-delegate', function (Y) {
+
+        var menuButton = Y.one('.nav-menu-button'),
+            nav        = Y.one('#nav');
+
+        // Setting the active class name expands the menu vertically on small screens.
+        menuButton.on('click', function (e) {
+            nav.toggleClass('active');
+        });
+
+        // Your application code goes here...
+
+    });
+</script>
+
+
+</body>
+</html>
