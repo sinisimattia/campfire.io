@@ -12,8 +12,9 @@
         <script src="/scripts/socket.io.js" rel="text/javascript"></script>
         <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'general'}}" id="io"></script>
         <style>
-            * {
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+            @font-face {
+                src: url("/resources/fonts/Nunito/Nunito-Regular.ttf");
+                font-family: mainFont;
             }
 
             :root{
@@ -41,10 +42,18 @@
                 "main";
             }
 
+            #sidebar.dark {
+                background-color: rgba(10, 10, 10, 0.3);
+            }
+
             .preheader{
                 background-color: var(--background) !important;
                 color: var(--foreground) !important;
                 padding: none;
+            }
+
+            .preheader, #sidebar{
+                border-radius: 0 0 20px 0;
             }
 
             ul, ol{
@@ -121,7 +130,7 @@
         </div>
 
         <div class="wide grid split-grid" id="main" style="overflow: hidden">
-            <div class="centered-txt desktop-only dark block grid-left padding relative" style="/*min-width: 180px;*/ height: 100%; overflow: hidden">
+            <div id="sidebar" class="centered-txt dark desktop-only block grid-left padding relative" style="/*min-width: 180px;*/ height: 100%; overflow: hidden">
                 <div style="overflow-y: scroll; height: 100%">  
                     <h4>Compagnia</h4>
                     <hr>
