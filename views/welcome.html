@@ -35,8 +35,8 @@
 
     <body class="fullscreen flex">
         <div style="animation-name: fade-in; animation-duration: 1s" class="block centered padding">
-            <form id="menu" method="POST" action="/chat">
-                <div id="welcome">
+            <form id="menu" method="POST" action="/chat" class="">
+                <div id="welcome" class="centered">
                         <h1 class="centered-txt title">
                             <span>campfire[io]</span><br>
                             <span class="author">{{ver}}</span>
@@ -49,7 +49,7 @@
                     <button type="button" onclick="n()" class="centered block padding bold wide rounded">Inizia a chattare</button>
                 </div>
 
-                <div id="enter" class="padding">
+                <div id="enter" class="padding centered">
                     <input class="wide block margin centered-txt" type="text" placeholder="Username" autocomplete="username" name="username" id="username" />
                     <p style="color: var(--foreground)" class="centered-txt">Default: {{def.username}}</p>
                     <div class="flex">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div id="rooms" class="padding">
+                <div id="rooms" class="padding centered">
                     <select autofocus class="wide block margin centered-txt" name="room" id="room">
                         <option class="author" disabled value="" selected>Scegli una stanza</option>
                         {% for room in rooms %}
