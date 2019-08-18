@@ -25,7 +25,7 @@ Quest'app è pensata per essere cambiata in futuro, quindi modificarla
 è reso semplicissimo. Basta cambiare i valori che vuoi all'interno di
 config.json nella root del progetto!
 
-## Grazie per aver corretto il mio progetto! Alla prossima ;)
+#### Grazie per aver corretto il mio progetto! Alla prossima ;)
 
 Powered by <a href="https://snisni.it">SNISNI</a>
 Styled with <a href="https://snisni.it/progetti/slim">slim.css</a>
