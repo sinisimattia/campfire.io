@@ -3,125 +3,25 @@
     <head>
         <title>{{ room }} · campfireio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="/resources/img/campfire.io.png">
-        <link href="/resources/css/slim.min.css" rel="stylesheet">
-        <link href="/resources/css/animations.css" rel="stylesheet">
+        <link rel="icon" href="/img/campfire.io.png">
+        <link href="/css/slim.min.css" rel="stylesheet">
+        <link href="/css/animations.css" rel="stylesheet">
+        <link href="/css/chat.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
         <script src="/scripts/push.js" rel="text/javascript"></script>
         <script src="/scripts/jquery-3.4.1.min.js" rel="text/javascript"></script>
         <script src="/scripts/socket.io.js" rel="text/javascript"></script>
         <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'general'}}" id="io"></script>
-        <style>
-            @font-face {
-                src: url("/resources/fonts/Nunito/Nunito-Regular.ttf");
-                font-family: mainFont;
-            }
-
-            :root{
-                --foreground: #6666ff;
-                --secondary: #ff99ff;
-                --background: #ffffff;
-            }
-
-            ::-webkit-scrollbar{
-                background: transparent;
-            }
-
-            ::-webkit-scrollbar-thumb{
-                background: var(--background) !important;
-            }
-
-            html, body{
-                height: 100%
-            }
-
-            body{
-                grid-template-rows: 50px 1fr;
-                grid-template-areas:
-                "head"
-                "main";
-            }
-
-            #sidebar.dark {
-                background-color: rgba(10, 10, 10, 0.3);
-            }
-
-            .preheader{
-                background-color: var(--background) !important;
-                color: var(--foreground) !important;
-                padding: none;
-            }
-
-            .preheader, #sidebar{
-                border-radius: 0 0 20px 0;
-            }
-
-            ul, ol{
-                margin: 0;
-                padding: 0;
-            }
-
-            ul{
-                list-style-type: none;                
-            }
-
-            ul#feed li{
-                animation: fade-in 0.5s;
-            }
-
-            ul#feed li .msg-content{
-                word-break: break-all;
-                word-wrap: break-word;
-            }
-
-            .split-grid{
-                grid-template-columns: 200px 1fr;
-            }
-
-            #chatInfo{
-                grid-area: head;
-            }
-
-            #main{
-                grid-area: main;
-            }
-
-            #chat-wrapper{
-                grid-template-rows: 4fr 1fr;
-                grid-template-areas:
-                "feed"
-                "msg";
-            }
-
-            #feed-wrapper{
-                grid-area: feed;
-                overflow-y: scroll;
-                overflow-x: hidden;
-            }
-
-            #msgbox {
-                grid-area: msg;
-            }
-
-            .request{
-                border: 1px dotted white;
-            }
-
-            .request .username{
-                background-color: white;
-                color: black !important;
-            }
-        </style>
     </head>
 
-    <body class="grid fullscreen cover-bg" columns="auto auto" style="background-image: url(/resources/img/{{background}}); overflow: hidden">
+    <body class="grid fullscreen cover-bg" columns="auto auto" style="background-image: url(/img/{{background}}); overflow: hidden">
         <div class="grid preheader split-grid" id="chatInfo">
-            <img src="/resources/img/camping/005-bonfire.svg" class="grid-left centered block" style="height: 80%">
+            <img src="/img/camping/005-bonfire.svg" class="grid-left centered block" style="height: 80%">
             <div class="h-padding centered centered-txt grid-right flex">
                 <span class="bold inline-block h-padding centered" id="userCount">
                     {{usersConnected}}
                 </span>
-                <img src="/resources/img/camping/026-map.svg" class="padding-right block" style="height: 30px">
+                <img src="/img/camping/026-map.svg" class="padding-right block" style="height: 30px">
                 <span class="inline-block centered capitalized rounded h-padding" style="color:var(--background); background-color: var(--foreground);">{{room}}</span>
                 <div class="flex bottom centered h-padding inline-block">
                     <a href="/" id="home" class="button block centered bold">ESCI</a>
@@ -158,7 +58,7 @@
                             <a id="typing" class="padding author" style="color:white"></a>
                         </div>
                         <input maxlength="100" size="200" type="text" class="padding" style="width: calc(100% - 40px)" name="message" id="message" placeholder="Scrivi un messaggio come {{username}}" autocomplete="off"/>
-                        <button type="submit" class="padding"><img height="12px" width="12px" src="/resources/img/send-button.svg"></button>
+                        <button type="submit" class="padding"><img height="12px" width="12px" src="/img/send-button.svg"></button>
                     </form>
                 </div>
             </div>

@@ -1,0 +1,109 @@
+@font-face {
+    src: url("/fonts/Nunito/Nunito-Regular.ttf");
+    font-family: mainFont;
+}
+
+:root{
+    --foreground: #6666ff;
+    --secondary: #ff99ff;
+    --background: #ffffff;
+}
+
+::-webkit-scrollbar{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--background) !important;
+}
+
+html, body{
+    height: 100%
+}
+
+body{
+    grid-template-rows: 50px 1fr;
+    grid-template-areas:
+    "head"
+    "main";
+}
+
+#sidebar.dark {
+    background-color: rgba(10, 10, 10, 0.3);
+}
+
+.preheader{
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+    padding: none;
+}
+
+.preheader, #sidebar{
+    border-radius: 0 0 20px 0;
+}
+
+ul, ol{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style-type: none;                
+}
+
+ul#feed li{
+    animation: fade-in 0.5s;
+}
+
+ul#feed li .msg-content{
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.split-grid{
+    grid-template-columns: 200px 1fr;
+}
+
+#chatInfo{
+    grid-area: head;
+}
+
+#main{
+    grid-area: main;
+}
+
+#chat-wrapper{
+    grid-template-rows: 4fr 1fr;
+    grid-template-areas:
+    "feed"
+    "msg";
+}
+
+#feed-wrapper{
+    grid-area: feed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#msgbox {
+    grid-area: msg;
+}
+
+.request{
+    border: 1px dotted white;
+}
+
+.request .username{
+    background-color: white;
+    color: black !important;
+}
+
+@media screen and (max-width: 700px){
+    #sidebar{
+        display: none;
+    }
+
+    #main{
+        grid-template-columns: 0 auto;
+    }
+}

@@ -3,41 +3,15 @@
     <head>
         <title>campfireio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" href="/resources/img/campfire.io.png">
-        <link rel="manifest" href="/resources/manifest.json">
-        <link href="/resources/css/slim.min.css" rel="stylesheet">
-        <link href="/resources/css/animations.css" rel="stylesheet">
+        <link rel="icon" href="/img/campfire.io.png">
+        <link rel="manifest" href="/manifest.json">
+        <link href="/css/slim.min.css" rel="stylesheet">
+        <link href="/css/animations.css" rel="stylesheet">
+        <link href="/css/frontpage.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/scripts/flickity.css"/>
         <script type="text/javascript" src="/scripts/flickity.pkgd.min.js"></script>
         <script type="text/javascript" src="/scripts/carousel.js"></script>
         <script type="text/javascript" src="/scripts/masonry.pkgd.min.js"></script>
-        <style>
-            @font-face {
-                src: url("/resources/fonts/Nunito/Nunito-Regular.ttf");
-                font-family: mainFont;
-            }
-
-            :root{
-                --foreground: #6666ff;
-                --secondary: #ff99ff;
-                --background: #ffffff;
-            }
-
-            :root{
-                --foreground: #6666ff;
-                --secondary: #ff99ff;
-                --background: #ffffff;
-            }
-
-            img {
-                width: 150px;
-                height: auto;
-            }
-
-            #menu div{
-                width: 300px;
-            }
-        </style>
     </head>
 
     <body class="fullscreen flex">
@@ -48,7 +22,7 @@
                             <span>campfire[io]</span><br>
                             <span class="author">{{ver}}</span>
                         </h1>
-                    <img src="/resources/img/camping/005-bonfire.svg" class="centered block">
+                    <img src="/img/camping/005-bonfire.svg" class="centered block">
                     <p style="color: var(--foreground)" class="centered-txt">Racconta storie intorno al fuoco!</p>
                     {% if usersConnected > 0 %}
                     <p style="color: var(--foreground)" class="centered-txt">{{usersConnected}} utenti connessi.</p>

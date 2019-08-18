@@ -1,0 +1,25 @@
+@font-face {
+    src: url("/fonts/Nunito/Nunito-Regular.ttf");
+    font-family: mainFont;
+}
+
+:root{
+    --foreground: #6666ff;
+    --secondary: #ff99ff;
+    --background: #ffffff;
+}
+
+:root{
+    --foreground: #6666ff;
+    --secondary: #ff99ff;
+    --background: #ffffff;
+}
+
+img {
+    width: 150px;
+    height: auto;
+}
+
+#menu div{
+    width: 300px;
+}
