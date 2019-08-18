@@ -1,8 +1,12 @@
+<link href="https://snisni.it/CSS/slim.css" rel="stylesheet">
+
 <img src="https://i.ibb.co/JBD1xNh/campfire-io.png" alt="" width="200" height="200"/>
 
 # campfire.io
 
 #### by **Mattia Sinisi** for **start2impact**
+
+<a href="https://campfireio.herokuapp.com" class="button rounded bold">Inizia a chattare</a>
 
 
 Ciao a tutti, questa è un'altra applicazione per la superguida
@@ -25,5 +29,5 @@ config.json nella root del progetto!
 
 ## Grazie per aver corretto il mio progetto! Alla prossima ;)
 
-Powered  by
-![SNISNI](https://www.snisni.it/Icons/slim-logo.png)
+Powered by <a href="https://snisni.it">SNISNI</a>
+Styled with <a href="https://snisni.it/progetti/slim">slim.css</a>
