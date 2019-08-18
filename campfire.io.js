@@ -23,7 +23,10 @@ var users = [];
 var messageRequests = [];
 
 // Set folders for static files · refer to string in first argument to access folder specified in second argument
-app.use("/resources", express.static(config.views.folder));
+app.use("/css", express.static(config.views.folder + "/css"));
+app.use("/img", express.static(config.views.folder + "/img"));
+app.use("/fonts", express.static(config.views.folder + "/fonts"));
+
 app.use("/scripts", express.static(config.scripts.folder));
 app.use("/scripts", express.static(config.scripts.assets));
 app.use("/scripts", express.static(config.scripts.modules + "/socket.io-client/dist"));
