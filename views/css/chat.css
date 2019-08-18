@@ -48,7 +48,7 @@ ul, ol{
 }
 
 ul{
-    list-style-type: none;                
+    list-style-type: none;
 }
 
 ul#feed li{
@@ -89,6 +89,10 @@ ul#feed li .msg-content{
     grid-area: msg;
 }
 
+#msgbox * {
+    position: relative;
+}
+
 .request{
     border: 1px dotted white;
 }
@@ -99,8 +103,8 @@ ul#feed li .msg-content{
 }
 
 @media screen and (max-width: 700px){
-    #sidebar{
-        display: none;
+    #sidebar, #sidebar *{
+        display: none !important;
     }
 
     #main{
