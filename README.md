@@ -1,16 +1,14 @@
-<link href="https://snisni.it/CSS/slim.css" rel="stylesheet">
-
 <img src="https://i.ibb.co/JBD1xNh/campfire-io.png" alt="" width="200" height="200"/>
 
 # campfire.io
 
 #### by **Mattia Sinisi** for **start2impact**
 
-<a href="https://campfireio.herokuapp.com" class="button rounded bold">Inizia a chattare</a>
+<a href="https://campfireio.herokuapp.com" class="button rounded bold">
+    <button style="border-radius: 10px; border: none; padding: 10px;">Inizia a chattare</button>
+</a>
 
-
-Ciao a tutti, questa è un'altra applicazione per la superguida
-di NodeJS.
+*Un'applicazione leggera e totalmente privata per chattare con i tuoi amici.*
 
 ## Chiarimenti
 <b>Perché è multipagina?</b>
