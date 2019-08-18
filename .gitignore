@@ -1,5 +1,5 @@
-server.crt
-server.csr
-server.key
-server.pass.key
-campfire.io.zip
+*.crt
+*.csr
+*.key
+*.zip
+*.odt
