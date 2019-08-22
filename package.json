@@ -1,6 +1,6 @@
 {
   "name": "campfire.io",
-  "version": "0.0.1",
+  "version": "1.2",
   "description": "A slim and powerful in-real-time chat application.",
   "author": "Mattia Sinisi",
   "dependencies": {

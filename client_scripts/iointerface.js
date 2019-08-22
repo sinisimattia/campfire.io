@@ -8,7 +8,6 @@
         var requests = $("#requests");
         var company = $("#company");
         var userCount = $("#userCount");
-        var me;
         var usersConnected;
         var windowFocus = true;
 
@@ -168,7 +167,7 @@
         </a>
     </li>`;
 
-    const userInList = (user) => `<li class="pure-menu-item" title="${user.username}#${user.id}"><a class="pure-menu-link">${user.username}</li></a>`;
+    const userInList = (user) => `<li class="pure-menu-item rounded padding v-margin" style="${user.id === me.id ? "border: 2px dashed white" : "" }; background-color: #${colorFromString(user.id)}" title="${user.username}#${user.id}"><a class="pure-menu-link">${user.username}</a></li>`;
 
     const warningView = (msg) => `<li><a>[!] Important comunication from the server: ${msg}</li></a>`;
 

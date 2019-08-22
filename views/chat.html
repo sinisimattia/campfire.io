@@ -14,12 +14,12 @@
         <script src="/scripts/iointerface.js" username="{{username || 'Anon'}}" room="{{room || 'general'}}" id="io"></script>
     </head>
 
-    <body class="grid fullscreen fill-bg" columns="auto auto" style="background-image: url(/img/{{background}}); overflow: hidden">
+    <body class="grid fullscreen cover-bg" columns="auto auto" style="background-image: url(/img/{{background}}); overflow: hidden">
         <div class="grid preheader split-grid" id="chatInfo">
             <img src="/img/camping/005-bonfire.svg" class="grid-left centered block" style="height: 80%">
             <div class="h-padding centered centered-txt grid-right flex">
                 <span class="bold inline-block h-padding centered" id="userCount">
-                    {{usersConnected}}
+                    {{userCount}}
                 </span>
                 <img src="/img/camping/026-map.svg" class="padding-right block" style="height: 30px">
                 <span class="inline-block centered capitalized rounded-right h-padding" style="color:var(--background); background-color: var(--foreground); margin-left: -2px;">{{room}}</span>

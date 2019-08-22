@@ -13,7 +13,7 @@
             "background":{
                 "folder": "img",
                 "list": {
-                    "chat": "wallpaper.sunset.jpg",
+                    "chat": "wallpaper.dark.jpg",
                     "frontpage": "wallpaper.png"
                 }
             }
@@ -44,6 +44,6 @@
         "room": "general"
     },
     "info": {
-        "version": "1.0"
+        "version": "1.2"
     }
 }

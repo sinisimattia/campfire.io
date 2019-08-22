@@ -50,7 +50,8 @@ app.post("/chat", (req, res) => {
         username: html.escape(req.body.username || config.default.username),
         room: html.escape(req.body.custom_room || req.body.room || config.default.room),
         background: config.views.prefs.background.list.chat,
-        usersConnected: users.length,
+        userCount: users.length,
+        users: users,
         messageRequests: messageRequests
     });
 });
@@ -60,7 +61,7 @@ app.get("/chat", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-    res.render("welcome.html", {
+    res.render(config.views.pages.frontpage, {
         usersConnected: users.length,
         background: config.views.prefs.background.list.frontpage,
         rooms: config.rooms,
@@ -81,7 +82,7 @@ app.get("/", (req, res) => {
  * Socket.io
  */
 io.on("connection", (socket) => {
-    var currentUser = new User("Anon", socket.id, );
+    var currentUser = new User("Anon", socket.id );
     socket.send(currentUser);
     users.push(currentUser);
 
