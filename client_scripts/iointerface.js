@@ -55,7 +55,14 @@
         });
 
         socket.on("echo_request", (msg) => {
-            feed.parent().animate({scrollTop: feed.height() + 30});
+            feed.parent().animate(
+                {
+                    scrollTop: feed.height() + 30
+                },
+                {
+                    duration: 100
+                }
+            );
 
             requests.append(requestView(msg));
 

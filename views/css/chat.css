@@ -73,7 +73,7 @@ ul#feed li .msg-content{
 }
 
 #chat-wrapper{
-    grid-template-rows: 4fr 1fr;
+    grid-template-rows: auto 90px;
     grid-template-areas:
     "feed"
     "msg";
