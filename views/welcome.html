@@ -16,7 +16,7 @@
 
     <body class="fullscreen flex">
         <div style="animation-name: fade-in; animation-duration: 1s" class="block centered padding">
-            <form id="menu" method="POST" action="/chat" class="">
+            <form id="menu" method="POST" action="/chat" class="rounded">
                 <div id="welcome" class="centered">
                         <h1 class="centered-txt title">
                             <span>campfire[io]</span><br>
@@ -30,8 +30,8 @@
                     <button type="button" onclick="n()" class="centered block padding bold wide rounded">Inizia a chattare</button>
                 </div>
 
-                <div id="enter" class="padding centered">
-                    <input class="wide block margin centered-txt" type="text" placeholder="Username" autocomplete="username" name="username" id="username" />
+                <div id="enter" class="centered">
+                    <input class="wide block v-margin centered-txt" type="text" placeholder="Username" autocomplete="username" name="username" id="username" />
                     <p style="color: var(--foreground)" class="centered-txt">Default: {{def.username}}</p>
                     <div class="flex">
                         <button type="button" onclick="p()" class="button h-margin block wide">Indietro</button>
@@ -39,15 +39,15 @@
                     </div>
                 </div>
 
-                <div id="rooms" class="padding centered">
-                    <select autofocus class="wide block margin centered-txt" name="room" id="room">
+                <div id="rooms" class="centered">
+                    <select autofocus class="wide block v-margin centered-txt" name="room" id="room">
                         <option class="author" disabled value="" selected>Scegli una stanza</option>
                         {% for room in rooms %}
                             <option value="{{room}}" class="capitalized">{{room}}</option>
                         {% endfor %}
                     </select>
 
-                    <input class="wide block margin centered-txt" type="text" name="custom_room" id="custom_room" placeholder="Stanza personalizzata"/>
+                    <input class="wide block v-margin centered-txt" type="text" name="custom_room" id="custom_room" placeholder="Stanza personalizzata"/>
 
                     <p style="color: var(--foreground)" class="centered-txt">Default: {{def.room}}</p>
 
