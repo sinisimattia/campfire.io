@@ -1,5 +1,3 @@
-//TODO: Implement day/night cycle
-
 /**
  * Modules
  */
@@ -15,6 +13,7 @@ const html = require("html-escaper");
  * Configuration
  */
 const config = require("./config.json");
+const rooms = require(config.rooms)
 
 /**
  * Important variables
@@ -64,7 +63,7 @@ app.get("/", (req, res) => {
     res.render(config.views.pages.frontpage, {
         usersConnected: users.length,
         background: config.views.prefs.background.list.frontpage,
-        rooms: config.rooms,
+        rooms: rooms,
         def: config.default,
         ver: config.info.version
     });
