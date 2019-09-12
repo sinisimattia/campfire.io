@@ -24,21 +24,7 @@
         "folder": "client_scripts",
         "assets": "assets"
     },
-    "rooms": [
-        "general",
-        "programmazione",
-        "avventure",
-        "misteri",
-        "futuro",
-        "notizie",
-        "sport",
-        "videogiochi",
-        "campeggio",
-        "film",
-        "musica",
-        "affari",
-        "amore"
-    ],
+    "rooms": "./API/rooms.json",
     "default": {
         "username": "Anon",
         "room": "general"
