@@ -122,7 +122,7 @@ io.on("connection", (socket) => {
     socket.on("message_request", (msg) => {
         if (msg.content != ""){
             msg.content = html.escape(msg.content);
-            io.to(msg.from.room).emit("echo_request", msg);
+            io.emit("echo_request", msg);
             messageRequests.push(new MessageRequest(msg.content, msg.from, config.timers.requestExpiration.value));
         }        
     });
