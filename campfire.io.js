@@ -8,6 +8,8 @@ const io = require("socket.io")(http);
 const consolidate = require("consolidate");
 const User = require("./assets/User");
 const html = require("html-escaper");
+const moment = require("moment");
+const MessageRequest = require("./assets/MessageRequest");
 
 /**
  * Configuration
@@ -121,7 +123,7 @@ io.on("connection", (socket) => {
         if (msg.content != ""){
             msg.content = html.escape(msg.content);
             io.to(msg.from.room).emit("echo_request", msg);
-            messageRequests.push(msg);
+            messageRequests.push(new MessageRequest(msg.content, msg.from, config.timers.requestExpiration.value));
         }        
     });
 
@@ -149,7 +151,7 @@ http.listen(process.env.PORT || config.port, () => {
 });
 
 /**
- * FUTURE PLANS
+ * How does this work?
  * ··················
  * Make this activate every hour
  * Every request has a time of publishing ( just hours )
@@ -158,5 +160,8 @@ http.listen(process.env.PORT || config.port, () => {
  */
 
 setInterval(() => {
-    messageRequests = [];
-}, config.cleanTimeout);
+    messageRequests.forEach( ({expiration}, i) => {
+        if (expiration > 0) messageRequests[i].expiration--;
+        else messageRequests.splice(i, 1);
+    });
+}, moment.duration(config.timers.cleanTimeout.value, config.timers.cleanTimeout.type));

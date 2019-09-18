@@ -1,6 +1,15 @@
 {
     "port": 40000,
-    "cleanTimeout": 865400000,
+    "timers": {
+        "cleanTimeout": {
+            "value": 1,
+            "type": "h"
+        },
+        "requestExpiration": {
+            "value": 23,
+            "type": "h"
+        }
+    },
     "views": {
         "pages": {
             "chat": "chat.html",
@@ -30,6 +39,6 @@
         "room": "general"
     },
     "info": {
-        "version": "1.2"
+        "version": "1.2.5"
     }
 }
