@@ -7,7 +7,7 @@
     "consolidate": "^0.15.1",
     "express": "^4.17.1",
     "html-escaper": "^2.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "push.js": "^1.0.12",
     "socket.io": "^2.2.0",
     "swig": "^1.4.2"
